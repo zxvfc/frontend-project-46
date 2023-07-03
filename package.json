@@ -16,6 +16,7 @@
     "url": "https://github.com/zxvfc/frontend-project-46/issues"
   },
   "homepage": "https://github.com/zxvfc/frontend-project-46#readme",
+  "gendiff": "bin/gendiff.js", 
   "dependencies": {
     "commander": "^11.0.0"
   }
