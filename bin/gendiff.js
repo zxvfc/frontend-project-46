@@ -83,3 +83,4 @@ program
   })
 program.parse()
 
+export default buildDiff;
