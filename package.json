@@ -20,13 +20,14 @@
   "gendiff": "bin/gendiff.js",
   "dependencies": {
     "commander": "^11.0.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.2",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
     "jest": "^29.6.0"
   }
 }

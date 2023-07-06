@@ -1,7 +1,8 @@
 import process from 'process';
 import fs from 'fs';
-import paths from 'path';
+import pathUtils from 'path';
 import _ from 'lodash';
+import * as parser from './parser.js';
 
 const ADDED = 'added';
 const DELETED = 'deleted';
@@ -10,11 +11,26 @@ const NOT_CHANGED = 'not changed';
 
 const isAbsolute = (path) => path.startsWith('/');
 
-const normalizePath = (pathToFile) => paths.resolve(isAbsolute(pathToFile) ? pathToFile : `${process.cwd()}/${pathToFile}`);
+const normalizePath = (pathToFile) => pathUtils.resolve(isAbsolute(pathToFile) ? pathToFile : `${process.cwd()}/${pathToFile}`);
 
-const readFile = (path) => fs.readFileSync(path, 'utf8');
+const getExtension = (path) => path.slice(path.lastIndexOf('.'));
 
-const parseContent = (content) => JSON.parse(content);
+const defineContentType = (path) => {
+  const extenstion = getExtension(path);
+  switch (extenstion) {
+    case '.json': return parser.JSON_TYPE;
+    case '.yml':
+    case '.yaml': return parser.YAML_TYPE;
+    default: return 'unsuported file type';
+  }
+};
+
+const readFileToJson = (path) => {
+  const normalizedPath = normalizePath(path);
+  const content = fs.readFileSync(path, 'utf8');
+  const contentType = defineContentType(path);
+  return parser.parseContent(content, contentType);
+};
 
 const defineFieldStatus = (key, obj1, obj2) => {
   if (!_.has(obj1, key)) return ADDED;
@@ -61,13 +77,8 @@ const formatDiff = (diff, format) => {
 };
 
 const handleFiles = (path1, path2) => {
-  const normalizedPath1 = normalizePath(path1);
-  const fileContent1 = readFile(normalizedPath1);
-  const obj1 = parseContent(fileContent1);
-
-  const normalizedPath2 = normalizePath(path2);
-  const fileContent2 = readFile(normalizedPath2);
-  const obj2 = parseContent(fileContent2);
+  const obj1 = readFileToJson(path1);
+  const obj2 = readFileToJson(path2);
 
   return buildDiff(obj1, obj2);
 };
