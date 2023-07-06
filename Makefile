@@ -1,3 +1,6 @@
+install:
+	npm ci
+
 run:
 	bin/gendiff.js
 
