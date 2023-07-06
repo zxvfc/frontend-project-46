@@ -2,5 +2,5 @@
 // import gendiff from '../bin/gendiff.js';
 
 test('gendiff', () => {
-  expect(1).toBe(1)
-})
+  expect(1).toBe(1);
+});

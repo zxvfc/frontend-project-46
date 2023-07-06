@@ -27,7 +27,6 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "escope": "^4.0.0",
     "jest": "^29.6.0"
   }
 }
