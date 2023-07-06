@@ -22,4 +22,3 @@ test('genDiff', () => {
   expect(genDiff(jsonFile1, jsonFile2, format)).toBe(exp1);
   expect(genDiff(yamlFile1, yamlFile2, format)).toBe(exp1);
 });
-

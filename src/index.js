@@ -27,8 +27,8 @@ const defineContentType = (path) => {
 
 const readFileToJson = (path) => {
   const normalizedPath = normalizePath(path);
-  const content = fs.readFileSync(path, 'utf8');
-  const contentType = defineContentType(path);
+  const content = fs.readFileSync(normalizedPath, 'utf8');
+  const contentType = defineContentType(normalizedPath);
   return parser.parseContent(content, contentType);
 };
 
