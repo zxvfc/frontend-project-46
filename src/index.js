@@ -67,4 +67,5 @@ const genDiff = (path1, path2, format = DEFAULT_FORMAT) => {
   return formatter.formatDiff(diff, format);
 };
 
-export { genDiff as default, DEFAULT_FORMAT };
+export default genDiff;
+export { DEFAULT_FORMAT };

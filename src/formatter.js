@@ -15,7 +15,7 @@ const formatStylish = (diff) => {
       case nodeStatus.NOT_CHANGED: return [`  ${buildStylishField(fieldName, node.oldValue)}`];
       default: return ['unsupported status'];
     }
-  }
+  };
   return `{\n\t${_.sortBy(diff, ['fieldName']).flatMap(formatNodeStylish).join('\n\t')}\n}\n`;
 };
 

@@ -32,7 +32,7 @@ const emptyFile = buildFixturePath('empty.json');
 test('genDiff', () => {
   expect(genDiff(jsonFile1, jsonFile2, format)).toBe(exp1);
   expect(genDiff(yamlFile1, yamlFile2, format)).toBe(exp1);
-//  expect(genDiff(jsonFile3, jsonFile4, format)).toBe(exp2);
-//  expect(genDiff(yamlFile3, yamlFile4, format)).toBe(exp2);
+  //  expect(genDiff(jsonFile3, jsonFile4, format)).toBe(exp2);
+  //  expect(genDiff(yamlFile3, yamlFile4, format)).toBe(exp2);
   expect(genDiff(emptyFile, jsonFile1, format)).toBe(exp3);
 });
