@@ -7,7 +7,7 @@ const parseContent = (content, contentType) => {
   switch (contentType) {
     case JSON_TYPE: return JSON.parse(content);
     case YAML_TYPE: return yaml.load(content);
-    default: return { message: 'error' };
+    default: throw new Error(`Unsupposrted contentType: ${contentType}`);
   }
 };
 
