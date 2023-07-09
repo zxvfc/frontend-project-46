@@ -25,5 +25,5 @@ export default (diff) => {
   })
     .filter((line) => !_.isEmpty(line))
     .join('\n');
-  return `${iter([], diff)}\n`;
+  return iter([], diff);
 };

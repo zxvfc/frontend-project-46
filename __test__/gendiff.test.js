@@ -10,12 +10,12 @@ const FIXTURES_FOLDER = pathUtils.resolve(__dirname, '..', '__fixtures__');
 
 const buildFixturePath = (fixtureName) => pathUtils.resolve(FIXTURES_FOLDER, fixtureName);
 
-const expectedStylish1 = fs.readFileSync(buildFixturePath('stylish-34'), 'utf8');
-const expectedStylish2 = fs.readFileSync(buildFixturePath('stylish-empty1'), 'utf8');
-const expectedPlain1 = fs.readFileSync(buildFixturePath('plain-34'), 'utf8');
-const expectedPlain2 = fs.readFileSync(buildFixturePath('plain-empty1'), 'utf8');
-const expectedJson1 = fs.readFileSync(buildFixturePath('json-34'), 'utf8');
-const expectedJson2 = fs.readFileSync(buildFixturePath('json-empty1'), 'utf8');
+const expectedStylish1 = fs.readFileSync(buildFixturePath('stylish-34'), 'utf8').trim();
+const expectedStylish2 = fs.readFileSync(buildFixturePath('stylish-empty1'), 'utf8').trim();
+const expectedPlain1 = fs.readFileSync(buildFixturePath('plain-34'), 'utf8').trim();
+const expectedPlain2 = fs.readFileSync(buildFixturePath('plain-empty1'), 'utf8').trim();
+const expectedJson1 = fs.readFileSync(buildFixturePath('json-34'), 'utf8').trim();
+const expectedJson2 = fs.readFileSync(buildFixturePath('json-empty1'), 'utf8').trim();
 
 const jsonFile1 = buildFixturePath('file1.json');
 

@@ -32,5 +32,5 @@ export default (diff) => {
     return ['{', ...lines, `${getBracketIndent(depth)}}`].join('\n');
   };
 
-  return `${iter(diff, 1)}\n`;
+  return iter(diff, 1);
 };
