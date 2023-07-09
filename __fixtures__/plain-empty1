@@ -1,0 +1,4 @@
+Property 'follow' was added with value: false
+Property 'host' was added with value: 'hexlet.io'
+Property 'proxy' was added with value: '123.234.53.22'
+Property 'timeout' was added with value: 50

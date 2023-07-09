@@ -4,7 +4,7 @@ import pathUtils from 'path';
 import _ from 'lodash';
 import * as parser from './parser.js';
 import * as nodeType from './node-type.js';
-import * as formatter from './formatter.js';
+import * as formatter from './formatters/index.js';
 
 const DEFAULT_FORMAT = formatter.STYLISH;
 
