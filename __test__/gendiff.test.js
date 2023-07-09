@@ -14,6 +14,8 @@ const expectedStylish1 = fs.readFileSync(buildFixturePath('stylish-34'), 'utf8')
 const expectedStylish2 = fs.readFileSync(buildFixturePath('stylish-empty1'), 'utf8');
 const expectedPlain1 = fs.readFileSync(buildFixturePath('plain-34'), 'utf8');
 const expectedPlain2 = fs.readFileSync(buildFixturePath('plain-empty1'), 'utf8');
+const expectedJson1 = fs.readFileSync(buildFixturePath('json-34'), 'utf8');
+const expectedJson2 = fs.readFileSync(buildFixturePath('json-empty1'), 'utf8');
 
 const jsonFile1 = buildFixturePath('file1.json');
 
@@ -37,4 +39,11 @@ test('genDiff plain', () => {
   expect(genDiff(jsonFile3, jsonFile4, format)).toBe(expectedPlain1);
   expect(genDiff(yamlFile3, yamlFile4, format)).toBe(expectedPlain1);
   expect(genDiff(emptyFile, jsonFile1, format)).toBe(expectedPlain2);
+});
+
+test('genDiff json', () => {
+  const format = 'json';
+  expect(genDiff(jsonFile3, jsonFile4, format)).toBe(expectedJson1);
+  expect(genDiff(yamlFile3, yamlFile4, format)).toBe(expectedJson1);
+  expect(genDiff(emptyFile, jsonFile1, format)).toBe(expectedJson2);
 });
